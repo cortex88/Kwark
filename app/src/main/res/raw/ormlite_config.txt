@@ -1,0 +1,72 @@
+#
+# generated on 2015/05/04 09:23:38
+#
+# --table-start--
+dataClass=com.example.cortex.kwark.domain.Exercise
+tableName=Exercise
+# --table-fields-start--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=name
+# --field-end--
+# --field-start--
+fieldName=muscle
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.example.cortex.kwark.domain.ExerciseLine
+tableName=ExerciseLine
+# --table-fields-start--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=routine
+foreign=true
+foreignAutoRefresh=true
+# --field-end--
+# --field-start--
+fieldName=name
+# --field-end--
+# --field-start--
+fieldName=muscle
+# --field-end--
+# --field-start--
+fieldName=sets
+# --field-end--
+# --field-start--
+fieldName=minReps
+# --field-end--
+# --field-start--
+fieldName=maxReps
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.example.cortex.kwark.domain.Routine
+tableName=Routine
+# --table-fields-start--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=name
+# --field-end--
+# --field-start--
+fieldName=day
+# --field-end--
+# --field-start--
+fieldName=exercises
+foreignCollection=true
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################

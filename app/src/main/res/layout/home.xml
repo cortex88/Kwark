@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/home"
+        android:id="@+id/homeLabel"
+        android:layout_weight="0.04"
+        android:textSize="32sp"
+        android:textColor="#20DEE8"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.04"
+        android:id="@+id/exerciseCountLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=""
+            android:textSize="16sp"
+            android:id="@+id/currentExercisesLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="16sp"
+            android:id="@+id/exerciseCountLabel" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.33"
+        android:weightSum="1">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exercises"
+            android:id="@+id/exercise_button"
+            android:layout_weight="0.33"
+            android:onClick="onButtonClick"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Routines"
+            android:id="@+id/routine_button"
+            android:layout_weight="0.32"
+            android:onClick="onButtonClick"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logs"
+            android:id="@+id/log_button"
+            android:layout_weight="0.33"
+            android:onClick="onButtonClick"/>
+    </LinearLayout>
+
+    VideoView
+        android:layout_width="match_parent"
+        android:layout_height="393dp"
+        android:id="@+id/videoView"
+        android:layout_gravity="center_horizontal" />
+</LinearLayout>

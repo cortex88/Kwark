@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kwark</string>
+    <string name="home">Home</string>
+    <string name="name">Name</string>
+    <string name="muscle">Muscle</string>
+    <string name="confirm">Confirm</string>
+    <string name="day">Day</string>
+    <string name="date">Date</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="exercises">Exercises</string>
+    <string name="manage_exercises">Manage Exercises</string>
+    <string name="stored_exercises">Stored exercises</string>
+    <string name="add_exercise">Add Exercise</string>
+    <string name="delete_exercise">Delete Exercise</string>
+    <string name="edit_exercise">Edit Exercise</string>
+
+    <string name="routines">Routines</string>
+    <string name="manage_routines">Manage Routines</string>
+    <string name="stored_routines">Stored routines</string>
+    <string name="add_routine">Add Routine</string>
+    <string name="delete_routine">Delete Routine</string>
+    <string name="edit_routine">Edit Routine</string>
+    <string name="sets">Sets</string>
+    <string name="back_to_routines">Back to Routines</string>
+
+    <string name="manage_logs">Manage Logs</string>
+
+    <string name="no_notes">No Notes Yet</string>
+    <string name="menu_insert">Add Note</string>
+    <string name="menu_delete_note">Delete Note</string>
+    <string name="menu_delete_all_notes">Delete Note</string>
+    <string name="title">Title</string>
+    <string name="body">Body</string>
+    <string name="edit_note">Edit Note</string>
+
+</resources>
