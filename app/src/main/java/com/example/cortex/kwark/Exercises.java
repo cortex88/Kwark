@@ -37,14 +37,12 @@ public class Exercises extends Activity {
 
     private ListView exerciseListView;
     private DaoFactory daoFactory;
-    //private RuntimeExceptionDao<Exercise, Integer> dao;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exercises);
         daoFactory = new DaoFactory(this);
-        //dao = (DaoFactory) getApplication().getExerciseRuntimeExceptionDao();
         exerciseListView = (ListView) findViewById(R.id.exerciseListView);
         registerForContextMenu(exerciseListView);
         addOnClickListener();
@@ -52,13 +50,13 @@ public class Exercises extends Activity {
     }
 
     private void updateGUI() {
-        // Get and display all exercises from db
+        // Get and display all exercises from db.
         RuntimeExceptionDao<Exercise, Integer> dao = daoFactory.getExerciseRuntimeExceptionDao();
         List<Exercise> exercises = dao.queryForAll();
         final ArrayAdapter<Exercise> adapter = new ArrayAdapter<Exercise>(this,
                 android.R.layout.simple_list_item_1, exercises);
         exerciseListView.setAdapter(adapter);
-        // Display exercise count
+        // Display exercise count.
         TextView countText = (TextView) findViewById(R.id.countLabel);
         int count = (int) dao.countOf();
         countText.setText("(" + count + ")");
@@ -102,7 +100,7 @@ public class Exercises extends Activity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        // Fetch the real Exercise entity from given menu item
+        // Fetch the real Exercise entity from given menu item.
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         Exercise exercise = (Exercise)exerciseListView.getAdapter().getItem(info.position);
         switch(item.getItemId()) {
@@ -131,20 +129,13 @@ public class Exercises extends Activity {
         i.putExtra(KEY_EXERCISE, exercise);
         startActivityForResult(i, ACTIVITY_EDIT_EXERCISE);
     }
-    /*
-    private void deleteExercise(int id) {
-        RuntimeExceptionDao<Exercise, Integer> dao = dbHelper.getExerciseRuntimeExceptionDao();
-        Exercise exercise = dao.queryForId(id);
-        deleteExercise(exercise);
-    }
-    */
+
     private void deleteExercise(final Exercise exercise) {
         DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case DialogInterface.BUTTON_POSITIVE:
-                        // Delete the exercise.
                         RuntimeExceptionDao<Exercise, Integer> dao = daoFactory.getExerciseRuntimeExceptionDao();
                         dao.delete(exercise);
                         updateGUI();
@@ -176,7 +167,6 @@ public class Exercises extends Activity {
     private void addOnClickListener() {
         exerciseListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Fetch and edit Exercise entity
                 Exercise exercise = (Exercise)exerciseListView.getAdapter().getItem(position);
                 editExercise(exercise);
             }

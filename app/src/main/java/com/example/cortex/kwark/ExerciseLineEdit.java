@@ -24,20 +24,19 @@ public class ExerciseLineEdit extends Activity {
     private EditText minRepsText;
     private EditText maxRepsText;
     private DaoFactory daoFactory;
-    private ExerciseLine exerciseLine; // The current exerciseLine being edited
+    private ExerciseLine exerciseLine; // The current ExerciseLine being edited
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exercise_line_edit);
-        // Initialize UI components
         nameText = (EditText) findViewById(R.id.name);
         muscleText = (EditText) findViewById(R.id.muscle);
         setsText = (EditText) findViewById(R.id.sets);
         minRepsText = (EditText) findViewById(R.id.minReps);
         maxRepsText = (EditText) findViewById(R.id.maxReps);
         daoFactory = new DaoFactory(this);
-        // Initialize exerciseLine entity
+        // Initialize exerciseLine entity.
         if (savedInstanceState != null) {
             exerciseLine = (ExerciseLine) savedInstanceState.getSerializable(KEY_EXERCISE_LINE);
         }
@@ -48,7 +47,7 @@ public class ExerciseLineEdit extends Activity {
                 exerciseLine = (ExerciseLine)passedExerciseLine;
             }
             else {
-                exerciseLine = new ExerciseLine(); // Here, this activity was used to add a new exercise.
+                exerciseLine = new ExerciseLine(); // Here, this activity was used to add a new exerciseline.
             }
         }
         updateGUI();
@@ -78,13 +77,13 @@ public class ExerciseLineEdit extends Activity {
     }
 
     private void saveState() {
-        // Get values
+        // Get values.
         String name = nameText.getText().toString();
         String muscle = muscleText.getText().toString();
         int sets = Integer.parseInt(setsText.getText().toString());
         int minReps = Integer.parseInt(minRepsText.getText().toString());
         int maxReps = Integer.parseInt(maxRepsText.getText().toString());
-        // Set and save values
+        // Set and save values.
         exerciseLine.setName(name);
         exerciseLine.setMuscle(muscle);
         exerciseLine.setSets(sets);

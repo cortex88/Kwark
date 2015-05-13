@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2008 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.example.cortex.kwark;
 
 import android.app.AlertDialog;
@@ -79,7 +63,6 @@ public class Home extends Activity {
 
     @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
-        //TODO: Implement activities and views
         switch(item.getItemId()) {
             case EXERCISES_MENU_ID:
                 manageExercises();
@@ -144,68 +127,6 @@ public class Home extends Activity {
             public void onClick(DialogInterface dialog, int which) {
             }
         });
-        // Set the Icon for the Dialog
-        //alertDialog.setIcon(R.drawable.icon);
         alertDialog.show();
     }
-
-    /*
-    private void deleteAllNotes() {
-        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                switch (which){
-                    case DialogInterface.BUTTON_POSITIVE:
-                        Cursor c = mDbHelper.fetchAllNotes();
-                        c.moveToFirst();
-                        do {
-                            mDbHelper.deleteNote(c.getLong(c.getColumnIndexOrThrow(NotesDbAdapter.KEY_ROWID)));
-                        }
-                        while (c.moveToNext());
-                        c.close();
-                        updateGUI();
-                        break;
-                    case DialogInterface.BUTTON_NEGATIVE:
-                        break;
-                }
-            }
-        };
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
-                .setNegativeButton("No", dialogClickListener).show();
-    }
-
-    @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-        Intent i = new Intent(this, NoteEdit.class);
-        i.putExtra(NotesDbAdapter.KEY_ROWID, id);
-        startActivityForResult(i, ACTIVITY_EDIT);
-    }
-    */
-
-
-
-    /*
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        menu.add(0, DELETE_ID, 0, R.string.menu_delete_note);
-    }
-
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case DELETE_ID:
-                AdapterView.AdapterContextMenuInfo info = (
-                        AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-                mDbHelper.deleteNote(info.id);
-                fillData();
-                return true;
-        }
-        return super.onContextItemSelected(item);
-    }
-    */
-
-
 }

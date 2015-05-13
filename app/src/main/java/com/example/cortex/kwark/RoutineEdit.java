@@ -57,7 +57,7 @@ public class RoutineEdit extends Activity {
         countLabel = (TextView) findViewById(R.id.countLabel);
         exerciseListView = (ListView) findViewById(R.id.exerciseListView);
         daoFactory = new DaoFactory(this);
-        // Initialize routine entity
+        // Initialize routine entity.
         if (savedInstanceState != null) {
             routine = (Routine) savedInstanceState.getSerializable(KEY_ROUTINE);
         }
@@ -79,12 +79,12 @@ public class RoutineEdit extends Activity {
     private void updateGUI() {
         nameText.setText(routine.getName());
         dayText.setText(routine.getDay());
-        // Get all ExerciseLine's of the routine
+        // Get all ExerciseLines of the routine.
         RuntimeExceptionDao<ExerciseLine, Integer> exerciseLineDao = daoFactory.getExerciseLineRuntimeExceptionDao();
         Map<String, Object> fieldValueMap = new HashMap<String, Object>();
         fieldValueMap.put("routine_id", routine.getId());
         List<ExerciseLine> exerciseLineList = exerciseLineDao.queryForFieldValues(fieldValueMap);
-        // Display all ExerciseLine's
+        // Display all ExerciseLines.
         final ArrayAdapter<ExerciseLine> adapter = new ArrayAdapter<ExerciseLine>(this,
                 android.R.layout.simple_list_item_1, exerciseLineList);
         exerciseListView.setAdapter(adapter);
@@ -127,7 +127,7 @@ public class RoutineEdit extends Activity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        // Fetch the real ExerciseLine entity from given menu item
+        // Fetch the real ExerciseLine entity from given menu item.
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         ExerciseLine exerciseLine = (ExerciseLine)exerciseListView.getAdapter().getItem(info.position);
         switch(item.getItemId()) {
@@ -149,7 +149,7 @@ public class RoutineEdit extends Activity {
     }
 
     private void addExerciseLine() {
-        editExerciseLine(new ExerciseLine(routine)); // Pass current routine (foreign key/object)
+        editExerciseLine(new ExerciseLine(routine));
     }
 
     private void editExerciseLine(ExerciseLine exerciseLine) {
@@ -164,7 +164,6 @@ public class RoutineEdit extends Activity {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case DialogInterface.BUTTON_POSITIVE:
-                        // Delete the routine.
                         RuntimeExceptionDao<ExerciseLine, Integer> dao = daoFactory.getExerciseLineRuntimeExceptionDao();
                         dao.delete(exerciseLine);
                         updateGUI();
@@ -243,7 +242,6 @@ public class RoutineEdit extends Activity {
     private void addOnClickListener() {
         exerciseListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Fetch and edit ExerciseLine entity
                 ExerciseLine exerciseLine = (ExerciseLine)exerciseListView.getAdapter().getItem(position);
                 editExerciseLine(exerciseLine);
             }

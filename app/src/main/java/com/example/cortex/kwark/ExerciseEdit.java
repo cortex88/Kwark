@@ -20,17 +20,16 @@ public class ExerciseEdit extends Activity {
     private EditText nameText;
     private EditText muscleText;
     private DaoFactory daoFactory;
-    private Exercise exercise; // The current exercise being edited
+    private Exercise exercise; // The current exercise being edited.
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exercise_edit);
-        // Initialize UI components
         nameText = (EditText) findViewById(R.id.name);
         muscleText = (EditText) findViewById(R.id.muscle);
         daoFactory = new DaoFactory(this);
-        // Initialize exercise entity
+        // Initialize exercise entity.
         if (savedInstanceState != null) {
             exercise = (Exercise) savedInstanceState.getSerializable(KEY_EXERCISE);
         }

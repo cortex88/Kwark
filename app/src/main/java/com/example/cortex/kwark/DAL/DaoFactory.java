@@ -1,9 +1,6 @@
 package com.example.cortex.kwark.DAL;
 
-import android.app.Application;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
 import com.example.cortex.kwark.domain.Exercise;
 import com.example.cortex.kwark.domain.ExerciseLine;
@@ -18,7 +15,6 @@ import java.sql.SQLException;
  * Created by cortex on 04/05/2015.
  */
 public class DaoFactory {
-    private SharedPreferences preferences;
     private DatabaseHelper databaseHelper = null;
     private Dao<Exercise, Integer> exerciseDao = null;
     private Dao<Routine, Integer> routineDao = null;
@@ -28,7 +24,6 @@ public class DaoFactory {
     private RuntimeExceptionDao<ExerciseLine, Integer> exerciseLineRuntimeExceptionDao = null;
 
     public DaoFactory(Context context) {
-        preferences = PreferenceManager.getDefaultSharedPreferences(context);
         databaseHelper = new DatabaseHelper(context);
     }
 

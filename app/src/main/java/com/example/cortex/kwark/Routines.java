@@ -50,13 +50,13 @@ public class Routines extends Activity {
     }
 
     private void updateGUI() {
-        // Get and display all routines from db to list
+        // Get and display all routines from db to list.
         RuntimeExceptionDao<Routine, Integer> dao = daoFactory.getRoutineRuntimeExceptionDao();
         List<Routine> routines = dao.queryForAll();
         final ArrayAdapter<Routine> adapter = new ArrayAdapter<Routine>(this,
                 android.R.layout.simple_list_item_1, routines);
         routineListView.setAdapter(adapter);
-        // Display routine count
+        // Display routine count.
         TextView countText = (TextView) findViewById(R.id.countLabel);
         int count = (int) dao.countOf();
         countText.setText("(" + count + ")");
@@ -136,7 +136,6 @@ public class Routines extends Activity {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case DialogInterface.BUTTON_POSITIVE:
-                        // Delete the routine.
                         RuntimeExceptionDao<Routine, Integer> dao = daoFactory.getRoutineRuntimeExceptionDao();
                         dao.delete(routine);
                         updateGUI();
@@ -162,7 +161,6 @@ public class Routines extends Activity {
     private void addOnClickListener() {
         routineListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Fetch and edit Routine entity
                 Routine routine = (Routine)routineListView.getAdapter().getItem(position);
                 editRoutine(routine);
             }

@@ -8,8 +8,6 @@ import com.example.cortex.kwark.domain.Exercise;
 import com.example.cortex.kwark.domain.ExerciseLine;
 import com.example.cortex.kwark.domain.Routine;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
-import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
@@ -20,6 +18,7 @@ import java.sql.SQLException;
  */
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public static final String DATABASE_NAME = "kwark.db";
+    // Changing this number currently drop-creates all tables, effectively deleting all the data.
     public static final int DATABASE_VERSION = 3;
 
     public DatabaseHelper(Context context) {
